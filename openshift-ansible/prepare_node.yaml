@@ -1,0 +1,48 @@
+---
+- name: remove all ips
+  shell: |
+    ./clean-interfaces.sh --nuke
+
+- name: add vlan device
+  shell: |
+    ip link add link enp175s0f0 name enp175s0f0.501 type vlan id 501
+    ip link set dev enp175s0f0 up
+    ip link set dev enp175s0f0.501 up
+
+- name: install ocp repo
+  shell: |
+    rpm -i http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
+    rhos-release 13-director -p 2019-05-15.1 --without-ceph -t /tmp
+    cp /tmp/rhos-release-rhel-7.6.repo /etc/yum.repos.d/
+    curl -o /etc/yum.repos.d/ose-v3.repo 'http://download-node-02.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.11/latest/puddle.repo'
+    yum update -y
+
+- name: ensure a list of packages are installed
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - NetworkManager
+
+- name: Start NetworkManager Service
+  systemd:
+    state: started
+    name: NetworkManager
+
+- name: disable IPv6
+  shell: |
+    sysctl -w net.ipv6.conf.all.disable_ipv6=1
+    sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+- name: Copy the DNS Host entries to the remote server
+  copy:
+    src: ./etc-hosts.txt
+    dest: /tmp/etc-hosts.txt
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Update DNS entries in /etc/hosts
+  shell: cat /tmp/etc-hosts.txt >> /etc/hosts
+
+

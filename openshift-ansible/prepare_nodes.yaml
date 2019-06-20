@@ -1,0 +1,8 @@
+---
+- name: "Setup nodes"
+  hosts: nodes
+  remote_user: root
+
+  tasks:
+    - include_tasks: prepare_node.yaml
+

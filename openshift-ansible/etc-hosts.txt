@@ -1,0 +1,10 @@
+10.1.38.222 f12-h06-000-1029u.rdu2.scalelab.redhat.com
+10.1.39.98 f12-h07-000-1029u.rdu2.scalelab.redhat.com
+10.1.39.176 f12-h08-000-1029u.rdu2.scalelab.redhat.com
+10.1.38.141 f12-h09-000-1029u.rdu2.scalelab.redhat.com
+10.1.36.63 f12-h10-000-1029u.rdu2.scalelab.redhat.com
+10.1.39.99 f12-h11-000-1029u.rdu2.scalelab.redhat.com
+10.1.38.74 f12-h12-000-1029u.rdu2.scalelab.redhat.com 
+10.1.37.0 f12-h13-000-1029u.rdu2.scalelab.redhat.com
+10.1.39.95 f13-h09-000-1029u.rdu2.scalelab.redhat.com
+10.1.36.116 f13-h10-000-1029u.rdu2.scalelab.redhat.com

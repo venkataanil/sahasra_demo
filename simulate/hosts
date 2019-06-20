@@ -1,0 +1,42 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+# HEAT_HOSTS_START - Do not edit manually within this section!
+192.168.24.18  overcloud.ctlplane.localdomain
+172.48.0.14  overcloud.storage.localdomain
+172.46.0.12  overcloud.internalapi.localdomain
+172.51.0.18  overcloud.localdomain
+172.49.0.11  overcloud.storagemgmt.localdomain
+172.46.0.24 overcloud-controller-0.localdomain overcloud-controller-0
+172.48.0.12 overcloud-controller-0.storage.localdomain overcloud-controller-0.storage
+172.46.0.24 overcloud-controller-0.internalapi.localdomain overcloud-controller-0.internalapi
+172.51.0.11 overcloud-controller-0.external.localdomain overcloud-controller-0.external
+172.47.0.18 overcloud-controller-0.tenant.localdomain overcloud-controller-0.tenant
+172.49.0.12 overcloud-controller-0.storagemgmt.localdomain overcloud-controller-0.storagemgmt
+192.168.24.7 overcloud-controller-0.ctlplane.localdomain overcloud-controller-0.ctlplane
+172.46.0.14 overcloud-controller-1.localdomain overcloud-controller-1
+172.48.0.11 overcloud-controller-1.storage.localdomain overcloud-controller-1.storage
+172.46.0.14 overcloud-controller-1.internalapi.localdomain overcloud-controller-1.internalapi
+172.51.0.30 overcloud-controller-1.external.localdomain overcloud-controller-1.external
+172.47.0.15 overcloud-controller-1.tenant.localdomain overcloud-controller-1.tenant
+172.49.0.10 overcloud-controller-1.storagemgmt.localdomain overcloud-controller-1.storagemgmt
+192.168.24.8 overcloud-controller-1.ctlplane.localdomain overcloud-controller-1.ctlplane
+172.46.0.11 overcloud-controller-2.localdomain overcloud-controller-2
+172.48.0.21 overcloud-controller-2.storage.localdomain overcloud-controller-2.storage
+172.46.0.11 overcloud-controller-2.internalapi.localdomain overcloud-controller-2.internalapi
+172.51.0.20 overcloud-controller-2.external.localdomain overcloud-controller-2.external
+172.47.0.13 overcloud-controller-2.tenant.localdomain overcloud-controller-2.tenant
+172.49.0.16 overcloud-controller-2.storagemgmt.localdomain overcloud-controller-2.storagemgmt
+192.168.24.11 overcloud-controller-2.ctlplane.localdomain overcloud-controller-2.ctlplane
+
+172.46.0.10 overcloud-compute-0.localdomain overcloud-compute-0
+172.48.0.27 overcloud-compute-0.storage.localdomain overcloud-compute-0.storage
+172.46.0.10 overcloud-compute-0.internalapi.localdomain overcloud-compute-0.internalapi
+172.47.0.10 overcloud-compute-0.tenant.localdomain overcloud-compute-0.tenant
+192.168.24.6 overcloud-compute-0.ctlplane.localdomain overcloud-compute-0.ctlplane
+
+
+
+
+# HEAT_HOSTS_END
+

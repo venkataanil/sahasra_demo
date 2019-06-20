@@ -1,0 +1,56 @@
+[OSEv3:children]
+masters
+nodes
+etcd
+
+[masters]
+f12-h06-000-1029u.rdu2.scalelab.redhat.com
+f12-h07-000-1029u.rdu2.scalelab.redhat.com
+
+[etcd]
+f12-h06-000-1029u.rdu2.scalelab.redhat.com
+f12-h07-000-1029u.rdu2.scalelab.redhat.com
+
+[nodes]
+f12-h06-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-master-infra'
+f12-h07-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-master-infra'
+f12-h08-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-compute'
+f12-h09-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-compute'
+f12-h10-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-compute'
+f12-h11-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-compute'
+f12-h12-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-compute'
+f12-h13-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-compute'
+f13-h09-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-compute'
+f13-h10-000-1029u.rdu2.scalelab.redhat.com openshift_node_group_name='node-config-compute'
+
+[OSEv3:vars]
+# SSH user, this user should allow ssh based auth without requiring a password
+ansible_ssh_user=root
+ansible_sudo=true
+
+# If ansible_ssh_user is not root, ansible_become must be set to true
+ansible_become=true
+openshift_deployment_type=origin
+openshift_disable_check=memory_availability,disk_availability
+
+# Configure the clusterNetworkCIDR by updating the value of osm_cluster_network_cidr
+osm_cluster_network_cidr=10.128.0.0/12
+
+# Configure the serviceNetworkCIDR by updating the value of openshift_portal_net
+openshift_deployment_type=origin
+openshift_cluster_monitoring_operator_install=false
+openshift_web_console_install=false
+
+# uncomment the following to enable htpasswd authentication; defaults to AllowAllPasswordIdentityProvider
+#openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+
+[localhost]
+localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env python"
+
+[all:vars]
+ansible_user=root
+ansible_ssh_private_key_file=/home/stack/.ssh/id_rsa
+host_key_checking=False
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+#ansible_ssh_common_args=' -o BatchMode=yes -o ForwardAgent=yes -o ServerAliveInterval=30 -o ControlMaster=auto -o ControlPersist=30m -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ' ansible_python_interpreter='/usr/bin/python'
+
